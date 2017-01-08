@@ -1,3 +1,2 @@
 ﻿  SnakeJoc.cpp
-  SnakeJoc.vcxproj -> C:\Users\Bogdan\Desktop\Proiect IP\snake_joc\SnakeVisual\SnakeJoc\Debug\SnakeJoc.exe
-  SnakeJoc.vcxproj -> C:\Users\Bogdan\Desktop\Proiect IP\snake_joc\SnakeVisual\SnakeJoc\Debug\SnakeJoc.pdb (Full PDB)
+c:\users\bogdan\desktop\proiect ip\snake_joc\snakevisual\snakejoc\snakejoc\snakejoc.cpp(3): error C2859: C:\Users\Bogdan\Desktop\Proiect IP\snake_joc\SnakeVisual\SnakeJoc\SnakeJoc\Debug\vc140.idb is not the idb file that was used when this precompiled header was created, recreate the precompiled header.

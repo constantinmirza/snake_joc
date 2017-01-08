@@ -1,11 +1,11 @@
 // SnakeJoc.cpp : Defines the entry point for the console application.
 //
-
 #include "stdafx.h"
 #include <iostream>
 #include <stdio.h>
 #include <stdlib.h>
 #include <windows.h>
+#include <conio.h>
 using namespace std;
 bool ConditieJoc;
 const int latime = 20;
@@ -51,6 +51,30 @@ void Ecran()
 	for (i = 0; i<latime + 2; i++)
 		cout << "#";
 	cout << endl;
+}
+void Input()
+{
+	if (_kbhit())
+	{
+		switch (_getch())
+		{
+		case 'a':
+			direc = LEFT;
+			break;
+		case 'd':
+			direc = RIGHT;
+			break;
+		case 'w':
+			direc = UP;
+			break;
+		case 's':
+			direc = DOWN;
+			break;
+		case 'x':
+			ConditieJoc = 1;
+			break;
+		}
+	}
 }
 int main()
 {
