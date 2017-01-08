@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1483836254 source:c:\users\bogdan\desktop\proiect ip\snake_joc\proiect\main.cpp
+	<iostream>
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+
