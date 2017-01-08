@@ -8,7 +8,7 @@
 #include <windows.h>
 using namespace std;
 bool ConditieJoc;
-const int latime = 40;
+const int latime = 20;
 const int inaltime = 20;
 int x, y, scor, CoordX, CoordY;
 enum Directii { stop = 0, LEFT, RIGHT, UP, DOWN };
@@ -36,6 +36,12 @@ void Ecran()
 		{
 			if (j == 0)
 				cout << "#";
+			if (i == y && j == x)
+				cout << "O";
+			else
+				if (i == CoordY && j == CoordY)
+					cout << "B";
+				else
 			cout << " ";
 			if (j == latime - 1)
 				cout << "#";
@@ -52,7 +58,7 @@ int main()
 	while (!ConditieJoc)
 	{
 		Ecran();
-		Sleep(20);
+		Sleep(30);
 	}
 	return 0;
 }
