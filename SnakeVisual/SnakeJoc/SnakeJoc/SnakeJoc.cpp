@@ -76,12 +76,34 @@ void Input()
 		}
 	}
 }
+void Control()
+{
+	switch (direc)
+	{
+	case LEFT:
+		x--;
+		break;
+	case RIGHT:
+		x++;
+		break;
+	case UP:
+		y--;
+		break;
+	case DOWN:
+		y++;
+		break;
+	default:
+		break;
+	}
+}
 int main()
 {
 	Setari();
 	while (!ConditieJoc)
 	{
 		Ecran();
+		Input();
+		Control();
 		Sleep(30);
 	}
 	return 0;
