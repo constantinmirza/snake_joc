@@ -39,7 +39,7 @@ void Ecran()
 			if (i == y && j == x)
 				cout << "O";
 			else
-				if (i == CoordY && j == CoordY)
+				if (i == CoordY && j == CoordX)
 					cout << "B";
 				else
 			cout << " ";
@@ -95,6 +95,15 @@ void Control()
 	default:
 		break;
 	}
+	if (x > latime || x<0 || y>inaltime || y < 0)
+		ConditieJoc = 1;
+	if (x == CoordX && y == CoordY)
+	{
+		scor++;
+		CoordX = rand() % latime;
+		CoordY = rand() % inaltime;
+	}
+
 }
 int main()
 {
