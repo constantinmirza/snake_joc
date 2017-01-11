@@ -24,6 +24,8 @@ void Setari()
 	srand((unsigned int)time(0));
 	CoordX = rand() % latime;
 	CoordY = rand() % inaltime;
+	coadaX[0] = x;
+	coadaY[0] = y;
 	scor = 0;
 }
 void Ecran()
@@ -129,8 +131,19 @@ void Control()
 	default:
 		break;
 	}
-	if (x > latime || x<0 || y>inaltime || y < 0)
-		ConditieJoc = 1;
+	for (i = 0; i < lungime_coada; i++)
+		if (coadaX[i] == x && coadaY[i] == y)
+			ConditieJoc = 1;
+	if (x < 0)
+		x = latime - 1;
+	else
+		if (x >= latime)
+			x = 0;
+	if (y < 0)
+		y = inaltime - 1;
+	else
+		if (y >= inaltime)
+			y = 0;
 	if (x == CoordX && y == CoordY)
 	{
 		scor++;
@@ -149,7 +162,7 @@ int main()
 		Ecran();
 		Input();
 		Control();
-		Sleep(50);
+		Sleep(75);
 	}
 	return 0;
 }
