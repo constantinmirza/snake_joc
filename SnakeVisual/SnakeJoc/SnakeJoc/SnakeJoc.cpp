@@ -27,6 +27,7 @@ void Setari()
 	coadaX[0] = x;
 	coadaY[0] = y;
 	scor = 0;
+	lungime_coada = 0;
 }
 void Ecran()
 {
@@ -92,7 +93,7 @@ void Input()
 		case 's':
 			direc = DOWN;
 			break;
-		case 'x':
+		case 'q':
 			ConditieJoc = 1;
 			break;
 		}
@@ -157,13 +158,63 @@ void Control()
 int main()
 {
 	Setari();
-	while (!ConditieJoc)
-	{
-		Ecran();
-		Input();
-		Control();
-		Sleep(75);
-	}
+	char meniu,repeat;
+	cout << "                SNAKE GAME" << endl;
+	cout << "     START MENU:" << endl;
+	cout << "     1->Start Game" << endl;
+	cout << "     2->Exit Game" << endl;
+	cin >> meniu;
+	int i;
+	bool ok = 1,ok1=1;
+	while (ok)
+		if (meniu == '1')
+		{
+			ok = 0;
+			system("cls");
+			while (!ConditieJoc)
+			{
+				Ecran();
+				Input();
+				Control();
+				Sleep(75);
+				if (ConditieJoc == 1)
+				{   
+					system("cls");
+					cout << "Your score is: " << scor<<endl;
+					cout << "Try again? (y/n)";
+					cin >> repeat;
+					while(ok1)
+					if (repeat == 'y')
+					{
+						ok1 = 0;
+						ok = 1;
+						for (i = 0; i < lungime_coada; i++)
+						{
+							coadaX[i] = 0;
+							coadaY[i] = 0;
+						}
+						Setari();
+					}
+					else
+						if (repeat == 'n')
+							return 0;
+						else
+						{
+							cout << "This is not an option" << endl;
+							cin >> repeat;
+						}
+				}
+			}
+		}
+		else
+			if (meniu == '2')
+				return 0;
+			else
+			{
+				cout << "This is not an option" << endl;
+				cin >> meniu;
+			}
+	
 	return 0;
 }
 
