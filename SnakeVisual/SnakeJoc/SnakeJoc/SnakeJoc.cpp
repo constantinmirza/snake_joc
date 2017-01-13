@@ -7,6 +7,7 @@
 #include <windows.h>
 #include <conio.h>
 #include <ctime>
+#include <fstream>
 using namespace std;
 bool ConditieJoc;
 const int latime = 20;
@@ -81,19 +82,19 @@ void Input()
 	{
 		switch (_getch())
 		{
-		case 'a':
+		case 'j':
 			direc = LEFT;
 			break;
-		case 'd':
+		case 'l':
 			direc = RIGHT;
 			break;
-		case 'w':
+		case 'i':
 			direc = UP;
 			break;
-		case 's':
+		case 'k':
 			direc = DOWN;
 			break;
-		case 'q':
+		case 'u':
 			ConditieJoc = 1;
 			break;
 		}
@@ -151,6 +152,13 @@ void Control()
 		srand((unsigned int)time(0));
 		CoordX = rand() % latime;
 		CoordY = rand() % inaltime;
+			for (i = 0; i < lungime_coada; i++)
+				if (coadaX[i] == CoordX || coadaY[i] == CoordY)
+				{
+					srand((unsigned int)time(0));
+					CoordX = rand() % latime;
+					CoordY = rand() % inaltime;
+				}
 		lungime_coada++;
 	}
 
@@ -159,15 +167,30 @@ int main()
 {
 	Setari();
 	char meniu,repeat;
-	cout << "                SNAKE GAME" << endl;
+	cout << "               ____   __    _     ___     _   ____" << endl;
+	cout << "              |       | \\   |    /   \\    | / |" << endl;
+	cout << "              |____   |  \\  |   /     \\   |/  |__ " << endl;
+	cout << "                   |  |   \\ |  /-------\\  |\\  | " << endl;
+	cout << "               ____|  |    \\| /         \\ | \\ |___" << endl;
+	cout << endl << endl;
 	cout << "     START MENU:" << endl;
-	cout << "     1->Start Game" << endl;
-	cout << "     2->Exit Game" << endl;
+	cout << "     1->Start Easy Game" << endl;
+	cout << "     2->Start Medium Game" << endl;
+	cout << "     3->Stat Hard Game" << endl;
+	cout << "     4->Exit Game" << endl;
 	cin >> meniu;
-	int i;
+	int i,viteza;
 	bool ok = 1,ok1=1;
+	if (meniu == '1')
+		viteza = 150;
+	else
+		if (meniu == '2')
+			viteza = 75;
+		else
+			if (meniu == '3')
+				viteza = 30;
 	while (ok)
-		if (meniu == '1')
+		if (meniu == '1' || meniu=='2' || meniu=='3')
 		{
 			ok = 0;
 			system("cls");
@@ -176,7 +199,7 @@ int main()
 				Ecran();
 				Input();
 				Control();
-				Sleep(75);
+				Sleep(viteza);
 				if (ConditieJoc == 1)
 				{   
 					system("cls");
@@ -207,14 +230,13 @@ int main()
 			}
 		}
 		else
-			if (meniu == '2')
+			if (meniu == '4')
 				return 0;
 			else
 			{
 				cout << "This is not an option" << endl;
 				cin >> meniu;
 			}
-	
 	return 0;
 }
 
